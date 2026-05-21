@@ -8,6 +8,9 @@
 
 ## Features
 
+- **Sidebar Integration**: Access Mobile View directly from the VS Code Activity Bar (left panel) for seamless multitasking.
+- **Floating Controls Panel**: An optimized, floating configuration panel that won't disrupt your preview layout when expanded or collapsed.
+- **Smart Device Filtering**: Dedicated Apple and Android icons to instantly filter and select device presets in a compact row.
 - **Device Presets**: Swap between multiple iPhone and Android presets (iPhone SE, iPhone 15, Pixel 7, Galaxy S23, etc.).
 - **Orientation Rotation**: Quickly toggle portrait and landscape viewports.
 - **Custom Viewport Sizes**: Manually adjust width and height bounds.
@@ -64,6 +67,9 @@ npx ovsx publish --pat <YOUR_OPEN_VSX_PAT>
 
 ## Características
 
+- **Integración en Barra Lateral (Activity Bar)**: Accede a Mobile View directamente desde el panel izquierdo de VS Code para un flujo de trabajo ininterrumpido.
+- **Panel de Controles Flotante**: Una interfaz de controles optimizada y flotante que no desplaza ni interrumpe la vista previa al mostrarse u ocultarse.
+- **Filtrado Inteligente de Dispositivos**: Iconos dedicados de Apple y Android para filtrar y seleccionar instantáneamente los preajustes de dispositivos.
 - **Preajustes de Dispositivos**: Cambia entre presets de iPhone y Android (iPhone SE, iPhone 15, Pixel 7, Galaxy S23, etc.).
 - **Rotación de Orientación**: Rota el dispositivo entre vertical y horizontal con un clic.
 - **Dimensiones Personalizadas**: Modifica manualmente el ancho y el alto.
