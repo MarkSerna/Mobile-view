@@ -2,7 +2,7 @@
   "name": "mobile-view",
   "displayName": "Mobile View",
   "description": "Preview web apps inside iPhone and Android sized Chromium webviews from Visual Studio Code.",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "publisher": "MarkSerna",
   "license": "MIT",
   "icon": "icon.png",

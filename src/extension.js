@@ -23,7 +23,8 @@ function activate(context) {
   const sidebarProvider = new MobileViewSidebarProvider(context.extensionUri);
   const sidebarView = vscode.window.registerWebviewViewProvider(
     'mobileView.sidebarView',
-    sidebarProvider
+    sidebarProvider,
+    { webviewOptions: { retainContextWhenHidden: true } }
   );
 
   context.subscriptions.push(openPanelCommand, sidebarView);
