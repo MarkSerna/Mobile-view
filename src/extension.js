@@ -1,7 +1,7 @@
 const vscode = require('vscode');
 
 function activate(context) {
-  const disposable = vscode.commands.registerCommand('mobileView.open', () => {
+  const openPanelCommand = vscode.commands.registerCommand('mobileView.open', () => {
     const panel = vscode.window.createWebviewPanel(
       'mobileView.preview',
       'Mobile View',
@@ -20,7 +20,32 @@ function activate(context) {
     panel.webview.html = getWebviewHtml(panel.webview, context.extensionUri, defaultUrl);
   });
 
-  context.subscriptions.push(disposable);
+  const sidebarProvider = new MobileViewSidebarProvider(context.extensionUri);
+  const sidebarView = vscode.window.registerWebviewViewProvider(
+    'mobileView.sidebarView',
+    sidebarProvider
+  );
+
+  context.subscriptions.push(openPanelCommand, sidebarView);
+}
+
+class MobileViewSidebarProvider {
+  constructor(extensionUri) {
+    this._extensionUri = extensionUri;
+  }
+
+  resolveWebviewView(webviewView, context, token) {
+    webviewView.webview.options = {
+      enableScripts: true,
+      localResourceRoots: [vscode.Uri.joinPath(this._extensionUri, 'media')]
+    };
+
+    const defaultUrl = vscode.workspace
+      .getConfiguration('mobileView')
+      .get('defaultUrl', 'http://localhost:3000');
+
+    webviewView.webview.html = getWebviewHtml(webviewView.webview, this._extensionUri, defaultUrl);
+  }
 }
 
 function deactivate() {}

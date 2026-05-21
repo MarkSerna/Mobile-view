@@ -381,3 +381,33 @@ iframe {
     padding: 24px 12px;
   }
 }
+
+@media (max-width: 640px) {
+  .app-shell {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .toolbar {
+    position: static;
+    width: 100%;
+    max-height: none;
+    box-shadow: none;
+    border-radius: 0;
+    margin: 0;
+    border-left: 0;
+    border-right: 0;
+    border-top: 0;
+  }
+
+  .toolbar.collapsed {
+    width: 100%;
+  }
+
+  .stage {
+    flex: 1;
+    min-height: auto;
+    padding: 24px 10px;
+  }
+}
+

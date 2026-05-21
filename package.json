@@ -31,7 +31,8 @@
     "Testing"
   ],
   "activationEvents": [
-    "onCommand:mobileView.open"
+    "onCommand:mobileView.open",
+    "onView:mobileView.sidebarView"
   ],
   "main": "./src/extension.js",
   "contributes": {
@@ -42,6 +43,24 @@
         "category": "Mobile View"
       }
     ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "mobileViewSidebar",
+          "title": "Mobile View",
+          "icon": "media/sidebar-icon.svg"
+        }
+      ]
+    },
+    "views": {
+      "mobileViewSidebar": [
+        {
+          "id": "mobileView.sidebarView",
+          "name": "Mobile View Simulator",
+          "type": "webview"
+        }
+      ]
+    },
     "configuration": {
       "title": "Mobile View",
       "properties": {
