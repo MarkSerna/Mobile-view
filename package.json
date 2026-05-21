@@ -2,7 +2,7 @@
   "name": "mobile-view",
   "displayName": "Mobile View",
   "description": "Preview web apps inside iPhone and Android sized Chromium webviews from Visual Studio Code.",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "publisher": "MarkSerna",
   "license": "MIT",
   "icon": "icon.png",
@@ -30,10 +30,6 @@
     "Other",
     "Testing"
   ],
-  "activationEvents": [
-    "onCommand:mobileView.open",
-    "onView:mobileView.sidebarView"
-  ],
   "main": "./src/extension.js",
   "contributes": {
     "commands": [
@@ -48,10 +44,7 @@
         {
           "id": "mobileViewSidebar",
           "title": "Mobile View",
-          "icon": {
-            "light": "media/sidebar-light.svg",
-            "dark": "media/sidebar-dark.svg"
-          }
+          "icon": "media/sidebar-icon.svg"
         }
       ]
     },
