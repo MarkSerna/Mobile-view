@@ -1,0 +1,63 @@
+{
+  "name": "mobile-view",
+  "displayName": "Mobile View",
+  "description": "Preview web apps inside iPhone and Android sized Chromium webviews from Visual Studio Code.",
+  "version": "0.1.0",
+  "publisher": "MarkSerna",
+  "license": "MIT",
+  "icon": "media/icon.png",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MarkSerna/Mobile-view.git"
+  },
+  "homepage": "https://github.com/MarkSerna/Mobile-view#readme",
+  "bugs": {
+    "url": "https://github.com/MarkSerna/Mobile-view/issues"
+  },
+  "keywords": [
+    "mobile",
+    "preview",
+    "webview",
+    "responsive",
+    "iphone",
+    "android",
+    "testing"
+  ],
+  "engines": {
+    "vscode": "^1.90.0"
+  },
+  "categories": [
+    "Other",
+    "Testing"
+  ],
+  "activationEvents": [
+    "onCommand:mobileView.open"
+  ],
+  "main": "./src/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "mobileView.open",
+        "title": "Mobile View: Open Preview",
+        "category": "Mobile View"
+      }
+    ],
+    "configuration": {
+      "title": "Mobile View",
+      "properties": {
+        "mobileView.defaultUrl": {
+          "type": "string",
+          "default": "http://localhost:3000",
+          "description": "Default URL opened by Mobile View."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "lint": "node --check src/extension.js",
+    "package": "vsce package"
+  },
+  "devDependencies": {
+    "@vscode/vsce": "^2.32.0"
+  }
+}

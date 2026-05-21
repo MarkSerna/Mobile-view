@@ -1,5 +1,7 @@
 # Mobile View
 
+[Available on Open VSX](https://open-vsx.org/extension/MarkSerna/mobile-view)
+
 **Mobile View** is a Visual Studio Code extension that opens a Chromium-based mobile device simulator within a VS Code webview panel. It lets you preview and test responsive web applications on typical iPhone and Android screen resolutions, change devices, rotate orientation, adjust zoom, and manually input custom resolutions.
 
 ---
@@ -39,6 +41,20 @@
 VS Code webviews run on Electron's Chromium framework. To display target websites, Mobile View uses an `<iframe>` container.
 - **Local Servers**: Local development servers (like Vite, React, Vue, Next.js, etc.) run smoothly without restrictions.
 - **Security Headers**: Some external production websites block iframe embedding for safety using `X-Frame-Options: DENY` or `Content-Security-Policy: frame-ancestors ...` (e.g. Google, Facebook, GitHub). If a site fails to load, check the Developer Tools console (`Developer: Toggle Developer Tools`) for CSP violations.
+
+---
+
+## Publishing to Open VSX
+
+To package and publish updates to the Open VSX registry, use the following commands:
+
+```bash
+# 1. Package the extension (generates a .vsix file)
+npx @vscode/vsce package
+
+# 2. Publish to Open VSX using your Personal Access Token (PAT)
+npx ovsx publish --pat <YOUR_OPEN_VSX_PAT>
+```
 
 ---
 
