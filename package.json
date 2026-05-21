@@ -48,7 +48,10 @@
         {
           "id": "mobileViewSidebar",
           "title": "Mobile View",
-          "icon": "$(device-mobile)"
+          "icon": {
+            "light": "media/sidebar-light.svg",
+            "dark": "media/sidebar-dark.svg"
+          }
         }
       ]
     },
