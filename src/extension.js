@@ -88,12 +88,17 @@ function getWebviewHtml(webview, extensionUri, defaultUrl) {
 
       <section class="control-group">
         <label for="device-select">Device</label>
-        <select id="device-select"></select>
-      </section>
-
-      <section class="segmented" aria-label="Platform">
-        <button id="platform-ios" type="button" class="active" data-platform="ios">iPhone</button>
-        <button id="platform-android" type="button" data-platform="android">Android</button>
+        <div class="device-row">
+          <div class="segmented platform-icons" aria-label="Platform">
+            <button id="platform-ios" type="button" class="active" data-platform="ios" title="iPhone">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20.94c1.5 0 2.75 1.06 4 1.06 3 0 6-8 6-12.22A4.91 4.91 0 0 0 17 5c-2.22 0-4 1.44-5 2-1-.56-2.78-2-5-2a4.9 4.9 0 0 0-5 4.78C2 14 5 22 8 22c1.25 0 2.5-1.06 4-1.06Z"/><path d="M10 2c1 .5 2 2 2 5"/></svg>
+            </button>
+            <button id="platform-android" type="button" data-platform="android" title="Android">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 16V9h14v7c0 1.1-.9 2-2 2H7c-1.1 0-2-.9-2-2z"/><path d="M9 4v5"/><path d="M15 4v5"/><path d="M12 9v9"/></svg>
+            </button>
+          </div>
+          <select id="device-select"></select>
+        </div>
       </section>
 
       <section class="control-grid">

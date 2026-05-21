@@ -51,11 +51,11 @@ select {
   z-index: 10;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 8px;
   width: min(280px, calc(100vw - 36px));
   max-height: calc(100vh - 36px);
   overflow: auto;
-  padding: 12px;
+  padding: 10px;
   background: var(--panel);
   border: 1px solid var(--panel-border);
   border-radius: 8px;
@@ -115,7 +115,7 @@ select {
 .control-group,
 .control-grid {
   display: grid;
-  gap: 8px;
+  gap: 6px;
 }
 
 label {
@@ -133,7 +133,8 @@ label {
 input,
 select {
   min-width: 0;
-  height: 30px;
+  height: 26px;
+  font-size: 12px;
   color: var(--input-text);
   background: var(--input);
   border: 1px solid var(--input-border);
@@ -149,7 +150,8 @@ select:focus {
 }
 
 button {
-  height: 30px;
+  height: 26px;
+  font-size: 12px;
   color: var(--accent-foreground);
   background: var(--accent);
   border: 1px solid var(--accent-strong);
@@ -178,13 +180,15 @@ button:hover {
 .segmented {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  padding: 3px;
+  padding: 2px;
   background: var(--input);
   border: 1px solid var(--panel-border);
-  border-radius: 8px;
+  border-radius: 6px;
 }
 
 .segmented button {
+  height: auto;
+  min-height: 22px;
   color: var(--muted);
   background: transparent;
   border: 0;
@@ -193,6 +197,29 @@ button:hover {
 .segmented button.active {
   color: var(--accent-foreground);
   background: var(--accent);
+}
+
+.device-row {
+  display: flex;
+  gap: 6px;
+  align-items: stretch;
+}
+
+.device-row select {
+  flex: 1;
+}
+
+.platform-icons {
+  display: flex;
+  padding: 2px;
+}
+
+.platform-icons button {
+  width: 30px;
+  height: auto;
+  padding: 0;
+  display: grid;
+  place-items: center;
 }
 
 .control-grid {

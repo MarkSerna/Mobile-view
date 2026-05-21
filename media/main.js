@@ -54,25 +54,29 @@
       elements.previewUrlInput.value = state.url;
       elements.frame.src = state.url;
 
+      renderDeviceOptions(state.platform);
+
       const matchedDevice = devices.find((item) => item.name === savedState.deviceName);
-      if (matchedDevice) {
+      if (matchedDevice && matchedDevice.platform === state.platform) {
         selectDevice(matchedDevice);
       } else {
         setPlatform(state.platform);
         applyDeviceSize();
       }
     } else {
-      selectDevice(devices[1]);
+      renderDeviceOptions(state.platform);
+      selectDevice(devices.find(d => d.platform === state.platform));
       loadUrl(state.url);
     }
 
     bindEvents();
   }
 
-  function renderDeviceOptions() {
+  function renderDeviceOptions(platform = state.platform) {
     elements.deviceSelect.innerHTML = '';
-
-    for (const device of devices) {
+    
+    const filtered = devices.filter((device) => device.platform === platform);
+    for (const device of filtered) {
       const option = document.createElement('option');
       option.value = device.name;
       option.textContent = `${device.name} (${device.width} x ${device.height})`;
@@ -150,7 +154,18 @@
   }
 
   function setPlatform(platform) {
-    state.platform = platform;
+    if (state.platform !== platform) {
+      state.platform = platform;
+      renderDeviceOptions(platform);
+      
+      const newDevice = devices.find((d) => d.platform === platform);
+      if (newDevice) {
+        state.width = newDevice.width;
+        state.height = newDevice.height;
+        elements.deviceSelect.value = newDevice.name;
+      }
+    }
+
     elements.device.classList.toggle('device-ios', platform === 'ios');
     elements.device.classList.toggle('device-android', platform === 'android');
 
