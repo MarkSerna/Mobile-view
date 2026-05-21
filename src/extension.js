@@ -101,7 +101,7 @@ function getWebviewHtml(webview, extensionUri, defaultUrl) {
         </div>
       </section>
 
-      <section class="control-grid">
+      <section class="control-grid" style="grid-template-columns: 1fr 1fr 1fr;">
         <label>
           Width
           <input id="width-input" type="number" min="240" max="1200">
@@ -110,11 +110,10 @@ function getWebviewHtml(webview, extensionUri, defaultUrl) {
           Height
           <input id="height-input" type="number" min="320" max="1600">
         </label>
-      </section>
-
-      <section class="control-group">
-        <label for="zoom-input">Zoom <span id="zoom-value">80%</span></label>
-        <input id="zoom-input" type="range" min="35" max="125" value="80">
+        <label>
+          Zoom <span id="zoom-value">80%</span>
+          <input id="zoom-input" type="range" min="35" max="125" value="80">
+        </label>
       </section>
 
       <div class="actions">
