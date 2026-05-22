@@ -2,7 +2,7 @@
   "name": "mobile-view",
   "displayName": "Mobile View",
   "description": "Preview web apps inside iPhone and Android sized Chromium webviews from Visual Studio Code.",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "publisher": "MarkSerna",
   "license": "MIT",
   "icon": "icon.png",
@@ -63,8 +63,8 @@
       "properties": {
         "mobileView.defaultUrl": {
           "type": "string",
-          "default": "http://localhost:3000",
-          "description": "Default URL opened by Mobile View."
+          "default": "",
+          "description": "Default URL opened by Mobile View. Leave empty to show the welcome screen."
         }
       }
     }

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: #050607;
+      color: #f4f6f8;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      text-align: center;
+    }
+    .container {
+      max-width: 360px;
+      padding: 36px 30px;
+      background: #111317;
+      border-radius: 20px;
+      box-shadow: 0 24px 54px rgba(0, 0, 0, 0.42);
+      border: 1px solid #343841;
+      animation: fadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .logo {
+      width: 64px;
+      height: 64px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, #34d399, #60a5fa);
+      margin: 0 auto 24px;
+      box-shadow: 0 12px 32px rgba(52, 211, 153, 0.25);
+    }
+    h1 {
+      margin: 0 0 12px;
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+    }
+    p {
+      margin: 0 0 28px;
+      font-size: 14px;
+      line-height: 1.5;
+      color: #aeb6c2;
+    }
+    .instructions {
+      text-align: left;
+      background: #1b1d21;
+      padding: 16px;
+      border-radius: 12px;
+      border: 1px solid #343841;
+    }
+    .instruction-step {
+      display: flex;
+      align-items: center;
+      margin-bottom: 14px;
+      font-size: 13px;
+      color: #e2e8f0;
+      font-weight: 500;
+    }
+    .instruction-step:last-child {
+      margin-bottom: 0;
+    }
+    .step-number {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: #34d399;
+      color: #07110d;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 12px;
+      margin-right: 12px;
+      flex-shrink: 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="logo"></div>
+    <h1>Mobile View</h1>
+    <p>Preview your responsive web applications directly inside Visual Studio Code.</p>
+    
+    <div class="instructions">
+      <div class="instruction-step">
+        <div class="step-number">1</div>
+        <span>Start your local server (e.g., localhost:3000)</span>
+      </div>
+      <div class="instruction-step">
+        <div class="step-number">2</div>
+        <span>Enter the URL in the top controls panel</span>
+      </div>
+      <div class="instruction-step">
+        <div class="step-number">3</div>
+        <span>Select your target device and start testing</span>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

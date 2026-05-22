@@ -15,7 +15,7 @@ function activate(context) {
 
     const defaultUrl = vscode.workspace
       .getConfiguration('mobileView')
-      .get('defaultUrl', 'http://localhost:3000');
+      .get('defaultUrl', '');
 
     panel.webview.html = getWebviewHtml(panel.webview, context.extensionUri, defaultUrl);
   });
@@ -43,7 +43,7 @@ class MobileViewSidebarProvider {
 
     const defaultUrl = vscode.workspace
       .getConfiguration('mobileView')
-      .get('defaultUrl', 'http://localhost:3000');
+      .get('defaultUrl', '');
 
     webviewView.webview.html = getWebviewHtml(webviewView.webview, this._extensionUri, defaultUrl);
   }
@@ -54,19 +54,20 @@ function deactivate() {}
 function getWebviewHtml(webview, extensionUri, defaultUrl) {
   const stylesUri = webview.asWebviewUri(vscode.Uri.joinPath(extensionUri, 'media', 'styles.css'));
   const scriptUri = webview.asWebviewUri(vscode.Uri.joinPath(extensionUri, 'media', 'main.js'));
+  const welcomeUri = webview.asWebviewUri(vscode.Uri.joinPath(extensionUri, 'media', 'welcome.html'));
   const nonce = getNonce();
 
   return `<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src ${webview.cspSource} https: data:; style-src ${webview.cspSource} 'unsafe-inline'; script-src 'nonce-${nonce}'; frame-src http: https:;">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src ${webview.cspSource} https: data:; style-src ${webview.cspSource} 'unsafe-inline'; script-src 'nonce-${nonce}'; frame-src ${webview.cspSource} http: https:;">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="${stylesUri}" rel="stylesheet">
   <title>Mobile View</title>
 </head>
 <body>
-  <main class="app-shell">
+  <main class="app-shell" data-welcome-url="${escapeHtml(welcomeUri.toString())}">
     <aside id="toolbar" class="toolbar" aria-label="Mobile View controls">
       <div class="control-window-header">
         <div class="brand">

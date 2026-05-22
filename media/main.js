@@ -209,9 +209,18 @@
 
   function loadUrl(value) {
     const url = normalizeUrl(value);
-    state.url = url;
-    elements.urlInput.value = url;
-    elements.previewUrlInput.value = url;
+    const welcomeUrl = document.querySelector('.app-shell').dataset.welcomeUrl;
+    
+    state.url = url === welcomeUrl ? '' : url;
+    
+    if (url !== welcomeUrl) {
+      elements.urlInput.value = url;
+      elements.previewUrlInput.value = url;
+    } else {
+      elements.urlInput.value = '';
+      elements.previewUrlInput.value = '';
+    }
+    
     elements.frame.src = url;
     saveState();
   }
@@ -220,7 +229,7 @@
     const trimmed = String(value || '').trim();
 
     if (!trimmed) {
-      return 'http://localhost:3000';
+      return document.querySelector('.app-shell').dataset.welcomeUrl;
     }
 
     if (/^https?:\/\//i.test(trimmed)) {
